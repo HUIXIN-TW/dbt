@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: covid19_epidemiological_data
+    database: COVID19_EPIDEMIOLOGICAL_DATA
+    schema: PUBLIC
+    tables:
+      - name: cases
+      - name: vaccinations

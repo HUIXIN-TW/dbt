@@ -1,0 +1,11 @@
+# models/example/schema.yml
+version: 2
+
+models:
+  - name: daily_new_cases
+    tests:
+      - not_null:
+          column_name: daily_new_cases
+      - accepted_values:
+          column_name: daily_new_cases
+          values: [">=0"]
