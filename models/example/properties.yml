@@ -1,0 +1,23 @@
+version: 2 # Specifies the version of the schema file format
+
+sources:
+  - name: SAMPLE_DATA
+    description: A sample data source from snowflake
+
+    # The connection details for the source
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: ORDERS
+        columns:
+          - name: O_ORDERKEY
+            tests:
+              - unique
+              - not_null
+      - name: LINEITEM
+        columns:
+          - name: L_ORDERKEY
+            tests:
+              - relationships:
+                  to: source('SAMPLE_DATA', 'ORDERS')
+                  field: O_ORDERKEY
